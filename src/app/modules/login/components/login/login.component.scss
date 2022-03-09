@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .surface-card{
+    width: 400px !important;
+  }
+}
+
+:host{
+  width:100%;
+}

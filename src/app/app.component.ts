@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from './@core/redux/app.state';
+import { selectUser } from './@core/redux/login/login.selector';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'acl-game';
+  user$ = this.store.select(selectUser);
+  constructor(private store: Store<AppState>) {}
 }
