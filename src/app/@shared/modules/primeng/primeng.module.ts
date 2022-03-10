@@ -13,6 +13,8 @@ import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { ProgressBarModule } from 'primeng/progressbar';
 import {CardModule} from 'primeng/card';
+import { MessageService } from 'primeng/api';
+
 
 
 @NgModule({
@@ -35,5 +37,6 @@ import {CardModule} from 'primeng/card';
     ProgressBarModule,
     CardModule,
   ],
+  providers:[MessageService]
 })
 export class PrimengModule {}

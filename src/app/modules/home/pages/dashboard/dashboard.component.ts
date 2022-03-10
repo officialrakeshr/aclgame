@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Player, playerList } from 'src/app/@core/models/Player.model';
-import { FilterService } from 'primeng/api';
+import { FilterService, MessageService } from 'primeng/api';
 import * as _ from 'lodash';
 export interface COLUMN {
   field: string;
@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
   players: Player[] = [];
   selectedPlayers: Player[] = [];
   cols: COLUMN[] = [];
-  constructor(private filterService: FilterService) {}
+  constructor(private filterService: FilterService,private messageService: MessageService) {}
 
   ngOnInit(): void {
     this.cols = [
@@ -72,16 +72,43 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  validations(data: Player) {
+  validations(data: Player):boolean {
     const IndianCount=this.selectedPlayers.filter(o=>this.filterService.filters.equals(o.Nation, 'India')).length;
+    const IndianCountLimit=4;
     const AllRoundersCount=this.selectedPlayers.filter(o=>this.filterService.filters.equals(o.Role, 'All-rounder')).length;
-    return this.showMessage(Validations.allRounder,AllRoundersCount<=5);
+    const AllRoundersCountLimit=3;
+    const teamSize=this.selectedPlayers.length;
+    const teamSizeLimit=11;
+    const captainCount=this.selectedPlayers.filter(o=>this.filterService.filters.equals(o.Role, 'Captain')).length;
+    const captainCountLimit=1;
+    const viseCaptainCount=this.selectedPlayers.filter(o=>this.filterService.filters.equals(o.Role, 'VCaptain')).length;
+    const viseCaptainCountLimit=1;
+    if(IndianCount>=IndianCountLimit && data.Nation=='India'){
+      this.showMessage('error','Block',`A team cannot have more than ${IndianCountLimit} indian players`)
+      return false;
+    }
+    else if(AllRoundersCount>=AllRoundersCountLimit && data.Role=='All-rounder'){
+      this.showMessage('error','Block',`A team cannot have more than ${AllRoundersCountLimit} all-rounders`)
+      return false;
+    }
+    else if(teamSize>=teamSizeLimit){
+      this.showMessage('error','Block',`A team cannot have more than ${teamSizeLimit} players`)
+      return false;
+    }
+    else if(captainCount>=captainCountLimit && data.Role=='Captain'){
+      this.showMessage('error','Block',`A team cannot have more than ${captainCountLimit} captains`)
+      return false;
+    }
+    else if(viseCaptainCount>=viseCaptainCountLimit && data.Role=='VCaptain'){
+      this.showMessage('error','Block',`A team cannot have more than ${viseCaptainCountLimit} vise-captains`)
+      return false;
+    }
+    else return true;
   }
 
-  showMessage(validations:Validations,valid:boolean){
-    if(!valid){
-      alert(Validations.allRounder)
-    }
-    return valid;
+  private showMessage(severity:string='success',summary:string,detail:string){
+    this.messageService.clear();
+    this.messageService.add({'severity':severity, 'summary': summary, 'detail': detail,sticky:true})
   }
+ 
 }

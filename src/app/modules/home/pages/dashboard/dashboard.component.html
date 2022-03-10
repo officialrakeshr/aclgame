@@ -1,11 +1,11 @@
 <div class="grid">
-    <div class="col">
+    <div class="col-5">
         <p-card header="Your XI Players">
-            <p-table #dt1 [columns]="cols" [value]="selectedPlayers" responsiveLayout="scroll" dataKey="Player"
-                [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]"
+            <p-table #dt1  [value]="selectedPlayers" responsiveLayout="scroll" dataKey="Player"
+                [rows]="5" [showCurrentPageReport]="true" [rowsPerPageOptions]="[5,10,15]"
                 styleClass="p-datatable-customers p-datatable-gridlines" [paginator]="true"
                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-                [globalFilterFields]="['Player','Team','Nation','Role']">
+                [globalFilterFields]="['Player']">
                 <ng-template pTemplate="caption">
                     <div class="p-d-flex">
                         <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="dt1.clear();search.value=''"></button>&nbsp;
@@ -16,21 +16,21 @@
                         </span>
                     </div>
                 </ng-template>
-                <ng-template pTemplate="header" let-columns>
+                <ng-template pTemplate="header" >
                     <tr>
-                        <th *ngFor="let col of columns">
+                        <th>
                             <div class="p-d-flex p-jc-between p-ai-center">
-                                {{col.header}}
-                                <p-columnFilter type="text" [field]="col.header" display="menu"></p-columnFilter>
+                                Player
+                                <p-columnFilter type="text" field="col.header" display="menu"></p-columnFilter>
                             </div>
                         </th>
                         <th>Action</th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-rowData let-column="columns" let-rowIndex="rowIndex">
+                <ng-template pTemplate="body" let-rowData  let-rowIndex="rowIndex">
                     <tr>
-                        <td *ngFor="let col of column">
-                            {{rowData[col.field]}}
+                        <td >
+                            {{rowData['Player']}}
                         </td>
                         <td>
                             <button pButton pRipple type="button" icon="pi pi-trash" (click)="remove(rowIndex)" class="p-button-rounded p-button-text"></button>
@@ -79,3 +79,4 @@
         </p-card>
     </div>
 </div>
+<p-toast></p-toast>
