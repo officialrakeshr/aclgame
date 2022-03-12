@@ -11,9 +11,6 @@ export interface FILTER {
   name: any;
 }
 
-export enum Validations{
-  allRounder="You already added maximum number of all-rounders."
-}
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -25,13 +22,63 @@ export class DashboardComponent implements OnInit {
   players: Player[] = [];
   selectedPlayers: Player[] = [];
   cols: COLUMN[] = [];
-  constructor(private filterService: FilterService,private messageService: MessageService) {}
 
+  public AllRoundersCountLimit = 3;
+  public captainCountLimit = 1;
+  public viseCaptainCountLimit = 1;
+  public IndianCountLimit = 4;
+  public teamSizeLimit = 11;
+  public wicketKeeperCountLimit = 1;
+
+  public AllRoundersCount = 0;
+  public captainCount = 0;
+  public viseCaptainCount = 0;
+  public IndianCount = 0;
+  public teamSize = 0;
+  public wicketKeeperCount = 0;
+
+  private _history: Player[][] = [];
+
+  roleList = [
+    { value: 'batter', name: 'Batter', inactive: false },
+    { value: 'wk', name: 'Wicket Keeper', inactive: false },
+    { value: 'bowler', name: 'Bowler', inactive: false },
+    { value: 'captain', name: 'Captain', inactive: false },
+    { value: 'vcaptain', name: 'Vice-Captain', inactive: false },
+    { value: 'allrounder', name: 'All-Rounder', inactive: false },
+  ];
+  constructor(
+    private filterService: FilterService,
+    private messageService: MessageService
+  ) {}
+
+  checkUndo(){
+    return this._history.length<1;
+  }
+  updateSquadHistory(cur: Player[]) {
+    this._history.push(_.cloneDeep(cur));
+  }
+  retrieveHistory(){
+    let len=this._history.length;
+    if(len==1 || len==0) return [];
+    this._history.pop();
+    let v=this._history.pop()||[];
+    this._history=[];
+    return _.cloneDeep(v);
+  }
+  undo() {
+    if(confirm("Do you want to undo this last squad change")){
+      this.selectedPlayers=this.retrieveHistory();
+      this.reset();
+    }
+  }
+
+  codeToName(value: string): string | undefined {
+    return this.roleList.find((o) => o.value == value)?.name;
+  }
   ngOnInit(): void {
     this.cols = [
       { field: 'Player', header: 'Player', filter: [] },
-      { field: 'Role', header: 'Role', filter: [] },
-      { field: 'Price', header: 'Price', filter: [] },
       { field: 'Nation', header: 'Nation', filter: [] },
       { field: 'Team', header: 'Team', filter: [] },
     ];
@@ -51,17 +98,34 @@ export class DashboardComponent implements OnInit {
 
   selectPlayer(data: Player, index: number) {
     if (this.selectedPlayers.includes(data)) return;
+    this.IndianCount = this.selectedPlayers.filter((o) =>
+      this.filterService.filters.equals(o.Nation, 'India')
+    ).length;
+    this.teamSize = this.selectedPlayers.length;
+
     if (this.validations(data)) {
+      data.roleList = this.roleList;
       this.selectedPlayers.push(data);
       this.dt1.clear();
       this.reset();
+      this.calculateCounts();
+      this.updateSquadHistory(this.selectedPlayers);
     }
   }
 
   remove(index: number) {
-    this.selectedPlayers.splice(index, 1);
-    this.dt1.clear();
-    this.reset();
+    if (
+      confirm(
+        'Do you want to remove this player :' +
+          this.selectedPlayers[index].Player
+      )
+    ) {
+      this.selectedPlayers.splice(index, 1);
+      this.dt1.clear();
+      this.reset();
+      this.calculateCounts();
+      this.updateSquadHistory(this.selectedPlayers);
+    }
   }
 
   reset() {
@@ -71,44 +135,71 @@ export class DashboardComponent implements OnInit {
       );
     });
   }
+  calculateCounts() {
+    this.AllRoundersCount = this.selectedPlayers.filter((o) =>
+      this.filterService.filters.equals(o.assignedRole, 'allrounder')
+    ).length;
 
-  validations(data: Player):boolean {
-    const IndianCount=this.selectedPlayers.filter(o=>this.filterService.filters.equals(o.Nation, 'India')).length;
-    const IndianCountLimit=4;
-    const AllRoundersCount=this.selectedPlayers.filter(o=>this.filterService.filters.equals(o.Role, 'All-rounder')).length;
-    const AllRoundersCountLimit=3;
-    const teamSize=this.selectedPlayers.length;
-    const teamSizeLimit=11;
-    const captainCount=this.selectedPlayers.filter(o=>this.filterService.filters.equals(o.Role, 'Captain')).length;
-    const captainCountLimit=1;
-    const viseCaptainCount=this.selectedPlayers.filter(o=>this.filterService.filters.equals(o.Role, 'VCaptain')).length;
-    const viseCaptainCountLimit=1;
-    if(IndianCount>=IndianCountLimit && data.Nation=='India'){
-      this.showMessage('error','Block',`A team cannot have more than ${IndianCountLimit} indian players`)
-      return false;
+    this.captainCount = this.selectedPlayers.filter((o) =>
+      this.filterService.filters.equals(o.assignedRole, 'captain')
+    ).length;
+
+    this.viseCaptainCount = this.selectedPlayers.filter((o) =>
+      this.filterService.filters.equals(o.assignedRole, 'vcaptain')
+    ).length;
+    this.IndianCount = this.selectedPlayers.filter((o) =>
+      this.filterService.filters.equals(o.Nation, 'India')
+    ).length;
+    this.teamSize = this.selectedPlayers.length;
+    this.wicketKeeperCount = this.selectedPlayers.filter((o) =>
+      this.filterService.filters.equals(o.assignedRole, 'wk')
+    ).length;
+  }
+  processDropDown(roleList: any[]): void {
+    this.calculateCounts();
+    if (this.AllRoundersCount >= this.AllRoundersCountLimit) {
+      roleList.find((o) => o.value == 'allrounder').inactive = true;
     }
-    else if(AllRoundersCount>=AllRoundersCountLimit && data.Role=='All-rounder'){
-      this.showMessage('error','Block',`A team cannot have more than ${AllRoundersCountLimit} all-rounders`)
-      return false;
+    if (this.captainCount >= this.captainCountLimit) {
+      roleList.find((o) => o.value == 'captain').inactive = true;
     }
-    else if(teamSize>=teamSizeLimit){
-      this.showMessage('error','Block',`A team cannot have more than ${teamSizeLimit} players`)
-      return false;
+    if (this.viseCaptainCount >= this.viseCaptainCountLimit) {
+      roleList.find((o) => o.value == 'vcaptain').inactive = true;
     }
-    else if(captainCount>=captainCountLimit && data.Role=='Captain'){
-      this.showMessage('error','Block',`A team cannot have more than ${captainCountLimit} captains`)
-      return false;
+    if (this.wicketKeeperCount >= this.wicketKeeperCountLimit) {
+      roleList.find((o) => o.value == 'wk').inactive = true;
     }
-    else if(viseCaptainCount>=viseCaptainCountLimit && data.Role=='VCaptain'){
-      this.showMessage('error','Block',`A team cannot have more than ${viseCaptainCountLimit} vise-captains`)
+  }
+  validations(data: Player): boolean {
+    this.calculateCounts();
+    if (this.IndianCount >= this.IndianCountLimit && data.Nation == 'India') {
+      this.showMessage(
+        'error',
+        'Block',
+        `A team cannot have more than ${this.IndianCountLimit} indian players`
+      );
       return false;
-    }
-    else return true;
+    } else if (this.teamSize >= this.teamSizeLimit) {
+      this.showMessage(
+        'error',
+        'Block',
+        `A team cannot have more than ${this.teamSizeLimit} players`
+      );
+      return false;
+    } else return true;
   }
 
-  private showMessage(severity:string='success',summary:string,detail:string){
+  private showMessage(
+    severity: string = 'success',
+    summary: string,
+    detail: string
+  ) {
     this.messageService.clear();
-    this.messageService.add({'severity':severity, 'summary': summary, 'detail': detail,sticky:true})
+    this.messageService.add({
+      severity: severity,
+      summary: summary,
+      detail: detail,
+      sticky: true,
+    });
   }
- 
 }

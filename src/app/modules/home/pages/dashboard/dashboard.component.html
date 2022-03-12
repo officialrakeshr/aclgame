@@ -1,14 +1,14 @@
 <div class="grid">
-    <div class="col-5">
+    <div class="col-4">
         <p-card header="Your XI Players">
-            <p-table #dt1  [value]="selectedPlayers" responsiveLayout="scroll" dataKey="Player"
-                [rows]="5" [showCurrentPageReport]="true" [rowsPerPageOptions]="[5,10,15]"
-                styleClass="p-datatable-customers p-datatable-gridlines" [paginator]="true"
+            <p-table #dt1 [value]="selectedPlayers" dataKey="Player" [rows]="5" [showCurrentPageReport]="true"
+                [rowsPerPageOptions]="[5,10,15]" styleClass="p-datatable-sm p-datatable-gridlines" [paginator]="true"
                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
                 [globalFilterFields]="['Player']">
                 <ng-template pTemplate="caption">
                     <div class="p-d-flex">
-                        <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="dt1.clear();search.value=''"></button>&nbsp;
+                        <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash"
+                            (click)="dt1.clear();search.value=''"></button>&nbsp;
                         <span class="p-input-icon-left p-ml-auto">
                             <i class="pi pi-search"></i>
                             <input pInputText #search type="text" (input)="dt1.filterGlobal(search.value, 'contains')"
@@ -16,40 +16,102 @@
                         </span>
                     </div>
                 </ng-template>
-                <ng-template pTemplate="header" >
+                <ng-template pTemplate="header">
                     <tr>
                         <th>
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                Player
-                                <p-columnFilter type="text" field="col.header" display="menu"></p-columnFilter>
-                            </div>
+                            Player
+                        </th>
+                        <th>
+                            Role
                         </th>
                         <th>Action</th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-rowData  let-rowIndex="rowIndex">
+                <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
                     <tr>
-                        <td >
+                        <td>
                             {{rowData['Player']}}
                         </td>
+                        <td pEditableColumn>
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <p-dropdown [options]="rowData.roleList" [(ngModel)]="rowData.assignedRole"
+                                        (onClick)="processDropDown(rowData.roleList)" optionDisabled="inactive"
+                                        optionLabel="name" optionValue="value" [style]="{'width':'100%'}"></p-dropdown>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{codeToName(rowData.assignedRole)}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
                         <td>
-                            <button pButton pRipple type="button" icon="pi pi-trash" (click)="remove(rowIndex)" class="p-button-rounded p-button-text"></button>
+                            <p-button label="Remove" styleClass="p-button-link" (click)="remove(rowIndex)"></p-button>
                         </td>
                     </tr>
                 </ng-template>
             </p-table>
+            <br>
+            <button pButton pRipple type="button" class="long_btn">Submit</button><br><br>
+            <button pButton pRipple type="button" class="long_btn">Reset</button><br><br>
+            <button pButton pRipple type="button" class="long_btn" [disabled]="checkUndo()" (click)="undo()">Undo</button>
+
+        </p-card>
+    </div>
+    <div class="col-2">
+        <p-card header="Team Summary">
+            <table class="team-summary-table">
+                <tbody>
+                    <tr class="team-summary-tr">
+                        <td>Team Size</td>
+                        <td>{{teamSize}}/{{teamSizeLimit}}</td>
+                        <td class="checkbox">{{teamSize==teamSizeLimit?' &#10003;':''}}</td>
+                    </tr>
+
+                    <tr class="team-summary-tr">
+                        <td>Indian Players</td>
+                        <td>{{IndianCount}}/{{IndianCountLimit}}</td>
+                        <td class="checkbox">{{IndianCount==IndianCountLimit?' &#10003;':''}}</td>
+                    </tr>
+                    <tr class="team-summary-tr">
+                        <td>Captain</td>
+                        <td>{{captainCount}}/{{captainCountLimit}}</td>
+                        <td class="checkbox">{{captainCount==captainCountLimit?' &#10003;':''}}</td>
+                    </tr>
+                    <tr class="team-summary-tr">
+                        <td>Vice Captain</td>
+                        <td>{{viseCaptainCount}}/{{viseCaptainCountLimit}}</td>
+                        <td class="checkbox">{{viseCaptainCount==viseCaptainCountLimit?' &#10003;':''}}</td>
+                    </tr>
+                    <tr class="team-summary-tr">
+                        <td>All-Rounder</td>
+                        <td>{{AllRoundersCount}}/{{AllRoundersCountLimit}}</td>
+                        <td class="checkbox">{{AllRoundersCount==AllRoundersCountLimit?' &#10003;':''}}</td>
+                    </tr>
+                    <tr class="team-summary-tr">
+                        <td>Wicket Keeper</td>
+                        <td>{{wicketKeeperCount}}/{{wicketKeeperCountLimit}}</td>
+                        <td class="checkbox">{{wicketKeeperCount==wicketKeeperCountLimit?' &#10003;':''}}</td>
+                    </tr>
+                    <tr class="team-summary-tr">
+                        <td>Substitute</td>
+                        <td>2/180</td>
+                        <td class="checkbox">{{wicketKeeperCount==wicketKeeperCountLimit?' &#10003;':''}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </p-card>
     </div>
     <div class="col">
         <p-card header="Available Players">
             <p-table #dt2 [columns]="cols" [value]="players" responsiveLayout="scroll" dataKey="Player" [rows]="10"
                 [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]"
-                styleClass="p-datatable-customers p-datatable-gridlines" [paginator]="true"
+                styleClass="p-datatable-sm p-datatable-gridlines" [paginator]="true"
                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-                [globalFilterFields]="['Player','Team','Nation','Role']">
+                [globalFilterFields]="['Player','Team','Nation']">
                 <ng-template pTemplate="caption">
                     <div class="p-d-flex">
-                        <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="dt2.clear();search.value=''"></button>&nbsp;
+                        <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash"
+                            (click)="dt2.clear();search.value=''"></button>&nbsp;
                         <span class="p-input-icon-left p-ml-auto">
                             <i class="pi pi-search"></i>
                             <input pInputText #search type="text" (input)="dt2.filterGlobal(search.value, 'contains')"

@@ -1,4 +1,6 @@
 export interface Player {
+    roleList?: { value: string; name: string; inactive: boolean; }[];
+    assignedRole?: string;
     Player: string;
     Role: string;
     Price: string;
