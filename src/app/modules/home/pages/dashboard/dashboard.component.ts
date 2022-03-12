@@ -29,6 +29,7 @@ export class DashboardComponent implements OnInit {
   public IndianCountLimit = 4;
   public teamSizeLimit = 11;
   public wicketKeeperCountLimit = 1;
+  public subCountLimit=180;
 
   public AllRoundersCount = 0;
   public captainCount = 0;
@@ -36,6 +37,7 @@ export class DashboardComponent implements OnInit {
   public IndianCount = 0;
   public teamSize = 0;
   public wicketKeeperCount = 0;
+  public subCountUsed=0;
 
   private _history: Player[][] = [];
 
@@ -70,6 +72,7 @@ export class DashboardComponent implements OnInit {
     if(confirm("Do you want to undo this last squad change")){
       this.selectedPlayers=this.retrieveHistory();
       this.reset();
+      this.subCountUsed--;
     }
   }
 
@@ -109,6 +112,7 @@ export class DashboardComponent implements OnInit {
       this.dt1.clear();
       this.reset();
       this.calculateCounts();
+      this.subCountUsed++;
       this.updateSquadHistory(this.selectedPlayers);
     }
   }
