@@ -1,517 +1,1206 @@
 export interface Player {
     roleList?: { value: string; name: string; inactive: boolean; }[];
     assignedRole?: string;
-    Player: string;
-    Role: string;
-    Price: string;
-    Nation: string;
+    "Player Name":string;
+    Active: string;
     Team: string;
 }
 
 
 export const playerList:Player[]=[
     {
-        "Player": "Shubman Gill",
-        "Role": "Batsman",
-        "Price": "INR 8 Crores(Drafted)",
-        "Nation": "India",
-        "Team": "Gujarat Titans"
+     "Player Name": "Virat Kohli",
+     "Team": "RCB",
+     "Active": "Active"
     },
     {
-        "Player": "Sai Sudarshan",
-        "Role": "Batsman",
-        "Price": "INR 20 Lakhs",
-        "Nation": "India",
-        "Team": "Gujarat Titans"
+     "Player Name": "Suyash Prabhudessai",
+     "Team": "RCB",
+     "Active": "Active"
     },
     {
-        "Player": "Abhinav Sadarangani",
-        "Role": "Batsman",
-        "Price": "INR 2.60 Crores",
-        "Nation": "India",
-        "Team": "Gujarat Titans"
+     "Player Name": "Faf du Plessis",
+     "Team": "RCB",
+     "Active": "Active"
     },
     {
-        "Player": "Rahmanullah Gurbaz",
-        "Role": "WK-Batsman",
-        "Price": "Will Update Soon",
-        "Nation": "Afghanistan",
-        "Team": "Gujarat Titans"
+     "Player Name": "Luvnith Sisodia",
+     "Team": "RCB",
+     "Active": "Active"
     },
     {
-        "Player": "David Miller",
-        "Role": "Batsman",
-        "Price": "INR 3 crores",
-        "Nation": "South Africa",
-        "Team": "Gujarat Titans"
+     "Player Name": "Finn Allen",
+     "Team": "RCB",
+     "Active": "Active"
     },
     {
-        "Player": "Matthew Wade (wk)",
-        "Role": "WK-Batsman",
-        "Price": "INR 2.40 Crores",
-        "Nation": "Australia",
-        "Team": "Gujarat Titans"
+     "Player Name": "Anuj Rawat",
+     "Team": "RCB",
+     "Active": "Active"
     },
     {
-        "Player": "Wriddhiman Saha (wk)",
-        "Role": "WK-Batsman",
-        "Price": "INR 1.90 Crores",
-        "Nation": "India",
-        "Team": "Gujarat Titans"
+     "Player Name": "Dinesh Karthik",
+     "Team": "RCB",
+     "Active": "Active"
     },
     {
-        "Player": "Rashid Khan",
-        "Role": "Bowler",
-        "Price": "INR 15 Crores(Drafted)",
-        "Nation": "Afghanistan",
-        "Team": "Gujarat Titans"
+     "Player Name": "Glenn Maxwell",
+     "Team": "RCB",
+     "Active": "Active"
     },
     {
-        "Player": "Varun Aaron",
-        "Role": "Bowler",
-        "Price": "INR 50 Lakhs",
-        "Nation": "India",
-        "Team": "Gujarat Titans"
+     "Player Name": "Sherfane Rutherford",
+     "Team": "RCB",
+     "Active": "Active"
     },
     {
-        "Player": "Darshan Nalkande",
-        "Role": "Bowler",
-        "Price": "INR 20 Lakhs",
-        "Nation": "India",
-        "Team": "Gujarat Titans"
+     "Player Name": "Aneeshwar Gautam",
+     "Team": "RCB",
+     "Active": "Active"
     },
     {
-        "Player": "Yash Dayal",
-        "Role": "Bowler",
-        "Price": "INR 3.20 Crores",
-        "Nation": "India",
-        "Team": "Gujarat Titans"
+     "Player Name": "David Willey",
+     "Team": "RCB",
+     "Active": "Active"
     },
     {
-        "Player": "Pradeep Sangwan",
-        "Role": "Bowler",
-        "Price": "INR 20 Lakhs",
-        "Nation": "India",
-        "Team": "Gujarat Titans"
+     "Player Name": "Mahipal Lomror",
+     "Team": "RCB",
+     "Active": "Active"
     },
     {
-        "Player": "Alzarri Joseph",
-        "Role": "Bowler",
-        "Price": "INR 2.40 Crores",
-        "Nation": "West Indies",
-        "Team": "Gujarat Titans"
+     "Player Name": "Shahbaz Ahmed",
+     "Team": "RCB",
+     "Active": "Active"
     },
     {
-        "Player": "R Sai Kishore",
-        "Role": "Bowler",
-        "Price": "INR 3 Crores",
-        "Nation": "India",
-        "Team": "Gujarat Titans"
+     "Player Name": "Wanindu Hasaranga",
+     "Team": "RCB",
+     "Active": "Active"
     },
     {
-        "Player": "Noor Ahmad",
-        "Role": "Bowler",
-        "Price": "INR 30 Lakhs",
-        "Nation": "Afghanistan",
-        "Team": "Gujarat Titans"
+     "Player Name": "Mohammed Siraj",
+     "Team": "RCB",
+     "Active": "Active"
     },
     {
-        "Player": "Lockie Ferguson",
-        "Role": "Bowler",
-        "Price": "INR 10 Crores",
-        "Nation": "New Zealand",
-        "Team": "Gujarat Titans"
+     "Player Name": "Chama Milind",
+     "Team": "RCB",
+     "Active": "Active"
     },
     {
-        "Player": "Mohammed Shami",
-        "Role": "Bowler",
-        "Price": "INR 6.25 Crores",
-        "Nation": "India",
-        "Team": "Gujarat Titans"
+     "Player Name": "Siddarth Kaul",
+     "Team": "RCB",
+     "Active": "Active"
     },
     {
-        "Player": "Hardik Pandya",
-        "Role": "All-rounder",
-        "Price": "INR 15 Crores(Drafted)",
-        "Nation": "India",
-        "Team": "Gujarat Titans"
+     "Player Name": "Karn Sharma",
+     "Team": "RCB",
+     "Active": "Active"
     },
     {
-        "Player": "Dominic Drakes",
-        "Role": "All-rounder",
-        "Price": "INR 1.10 Crores",
-        "Nation": "West Indies",
-        "Team": "Gujarat Titans"
+     "Player Name": "Harshal Patel",
+     "Team": "RCB",
+     "Active": "Active"
     },
     {
-        "Player": "Vijay Shankar",
-        "Role": "All-rounder",
-        "Price": "INR 1.40 Crores",
-        "Nation": "India",
-        "Team": "Gujarat Titans"
+     "Player Name": "Akash Deep",
+     "Team": "RCB",
+     "Active": "Active"
     },
     {
-        "Player": "Jayant Yadav",
-        "Role": "All-rounder",
-        "Price": "INR 1.70 Crores",
-        "Nation": "India",
-        "Team": "Gujarat Titans"
+     "Player Name": "Jason Behrendorff",
+     "Team": "RCB",
+     "Active": "Active"
     },
     {
-        "Player": "Gurkeerat Singh Mann",
-        "Role": "All-rounder",
-        "Price": "INR 50 Lakhs",
-        "Nation": "India",
-        "Team": "Gujarat Titans"
+     "Player Name": "Josh Hazlewood",
+     "Team": "RCB",
+     "Active": "Active"
     },
     {
-        "Player": "Rahul Tewatia",
-        "Role": "All-rounder",
-        "Price": "INR 9 Crores",
-        "Nation": "India",
-        "Team": "Gujarat Titans"
+     "Player Name": "Rohit Sharma",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "MS Dhoni (c&wk)",
-        "Role": "WK-Batsman",
-        "Price": "INR 12 Cr(Retained)",
-        "Nation": "India",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Suryakumar Yadav",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Ruturaj Gaikwad",
-        "Role": "Batsman",
-        "Price": "INR 6 Cr(Retained)",
-        "Nation": "India",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Ramandeep Singh",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Robin Uthappa",
-        "Role": "Batsman",
-        "Price": "INR 2 crores",
-        "Nation": "India",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Rahul Buddhi",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Ambati Rayudu (wk)",
-        "Role": "WK- Batsman",
-        "Price": "INR 6.75 crores",
-        "Nation": "India",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Anmolpreet Singh",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Devon Conway",
-        "Role": "Batsman",
-        "Price": "INR 1 crores",
-        "Nation": "New Zealand",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Tilak Varma",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Subhranshu Senapati",
-        "Role": "Batsman",
-        "Price": "INR 20 Lakhs",
-        "Nation": "India",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Dewald Brevis",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Hari Nishaanth",
-        "Role": "Batsman",
-        "Price": "INR 20 Lakhs",
-        "Nation": "India",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Aryan Juyal",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "N Jagadeesan (wk)",
-        "Role": "WK- Batsman",
-        "Price": "INR 20 Lakhs",
-        "Nation": "India",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Ishan Kishan",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Deepak Chahar",
-        "Role": "Bowler",
-        "Price": "INR 14 crores",
-        "Nation": "India",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Sheldon Jackson",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "KM Asif",
-        "Role": "Bowler",
-        "Price": "INR 20 Lakhs",
-        "Nation": "India",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Kieron Pollard",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Tushar Deshpande",
-        "Role": "Bowler",
-        "Price": "INR 20 Lakhs",
-        "Nation": "India",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Fabian Allen",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Maheesh Theekshana",
-        "Role": "Bowler",
-        "Price": "INR 70 Lakhs",
-        "Nation": "Sri Lanka",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Hrithik Shokeen",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Simranjeet Singh",
-        "Role": "Bowler",
-        "Price": "INR 20 Lakhs",
-        "Nation": "India",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Tim David",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Adam Milne",
-        "Role": "Bowler",
-        "Price": "INR 1.90 crores",
-        "Nation": "New Zealand",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Sanjay Yadav",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Mukesh Choudhary",
-        "Role": "Bowler",
-        "Price": "INR 20 Lakhs",
-        "Nation": "India",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Jasprit Bumrah",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Prashant Solanki",
-        "Role": "Bowler",
-        "Price": "INR 1.20 crores",
-        "Nation": "India",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Umesh Yadav",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Mitchell Santner",
-        "Role": "Bowler",
-        "Price": "INR 1.90 crores",
-        "Nation": "New Zealand",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Mohammad Arshad Khan",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Rajvardhan Hangargekar",
-        "Role": "Bowler",
-        "Price": "INR 1.50 crores",
-        "Nation": "India",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Arjun Tendulkar",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Ravindra Jadeja",
-        "Role": "All-rounder",
-        "Price": "INR 16 Cr(Retained)",
-        "Nation": "India",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Riley Meredith",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Moeen Ali",
-        "Role": "All-rounder",
-        "Price": "INR 8 Cr(Retained)",
-        "Nation": "England",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Tymal Mills",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Dwayne Bravo",
-        "Role": "All-rounder",
-        "Price": "INR 4.40 crores",
-        "Nation": "West Indies",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Jofra Archer",
+     "Team": "MI",
+     "Active": "Inactive"
     },
     {
-        "Player": "Shivam Dube",
-        "Role": "All-rounder",
-        "Price": "INR 4 crores",
-        "Nation": "India",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Daniel Sams",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Dwaine Pretorius",
-        "Role": "All-rounder",
-        "Price": "INR 50 Lakhs",
-        "Nation": "South Africa",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Mayank Markande",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Bhagath Varma",
-        "Role": "All-rounder",
-        "Price": "INR 20 Lakhs",
-        "Nation": "India",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Jaydev Unadkat",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Chris Jordan",
-        "Role": "All-rounder",
-        "Price": "INR 3.60 Crores",
-        "Nation": "England",
-        "Team": "Chennai Super Kings"
+     "Player Name": "Murugan Ashwin",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Rishabh Pant (c&wk)",
-        "Role": "WT-Batsman",
-        "Price": "INR 16 Cr(Retained)",
-        "Nation": "India",
-        "Team": "Delhi Capitals"
+     "Player Name": "Basil Thampi",
+     "Team": "MI",
+     "Active": "Active"
     },
     {
-        "Player": "Prithvi Shaw",
-        "Role": "Batsman",
-        "Price": "INR 7.50Cr(Retained)",
-        "Nation": "India",
-        "Team": "Delhi Capitals"
+     "Player Name": "Ruturaj Gaikwad",
+     "Team": "CSK",
+     "Active": "Active"
     },
     {
-        "Player": "David Warner",
-        "Role": "Batsman",
-        "Price": "INR 6.25 Crores",
-        "Nation": "Australia",
-        "Team": "Delhi Capitals"
+     "Player Name": "MS Dhoni",
+     "Team": "CSK",
+     "Active": "Active"
     },
     {
-        "Player": "Ashwin Hebbar",
-        "Role": "Batsman",
-        "Price": "INR 20 Lakhs",
-        "Nation": "India",
-        "Team": "Delhi Capitals"
+     "Player Name": "Hari Nishanth",
+     "Team": "CSK",
+     "Active": "Active"
     },
     {
-        "Player": "Sarfaraz Khan",
-        "Role": "Batsman",
-        "Price": "INR 20 Lakhs",
-        "Nation": "India",
-        "Team": "Delhi Capitals"
+     "Player Name": "Subhranshu Senapati",
+     "Team": "CSK",
+     "Active": "Active"
     },
     {
-        "Player": "KS Bharat (wk)",
-        "Role": "WK-Batsman",
-        "Price": "INR 2 crores",
-        "Nation": "India",
-        "Team": "Delhi Capitals"
+     "Player Name": "Devon Conway",
+     "Team": "CSK",
+     "Active": "Active"
     },
     {
-        "Player": "Yash Dhull",
-        "Role": "Batsman",
-        "Price": "INR 50 Lakhs",
-        "Nation": "India",
-        "Team": "Delhi Capitals"
+     "Player Name": "Robin Uthappa",
+     "Team": "CSK",
+     "Active": "Active"
     },
     {
-        "Player": "Mandeep Singh",
-        "Role": "Batsman",
-        "Price": "INR 1.10 crores",
-        "Nation": "India",
-        "Team": "Delhi Capitals"
+     "Player Name": "N Jagadeesan",
+     "Team": "CSK",
+     "Active": "Active"
     },
     {
-        "Player": "Rovman Powell",
-        "Role": "Batsman",
-        "Price": "INR 2.80 crores",
-        "Nation": "West Indies",
-        "Team": "Delhi Capitals"
+     "Player Name": "Ambati Rayudu",
+     "Team": "CSK",
+     "Active": "Active"
     },
     {
-        "Player": "Tim Seifert (wk)",
-        "Role": "WK-Batsman",
-        "Price": "INR 50 Lakhs",
-        "Nation": "New Zealand",
-        "Team": "Delhi Capitals"
+     "Player Name": "Ravindra Jadeja",
+     "Team": "CSK",
+     "Active": "Active"
     },
     {
-        "Player": "Anrich Nortje",
-        "Role": "Bowler",
-        "Price": "INR 6.50 Cr(Retained)",
-        "Nation": "South Africa",
-        "Team": "Delhi Capitals"
+     "Player Name": "Moeen Ali",
+     "Team": "CSK",
+     "Active": "Active"
     },
     {
-        "Player": "Shardul Thakur",
-        "Role": "Bowler",
-        "Price": "INR 10.75 crores",
-        "Nation": "India",
-        "Team": "Delhi Capitals"
+     "Player Name": "Bhagath Varma",
+     "Team": "CSK",
+     "Active": "Active"
     },
     {
-        "Player": "Kamlesh Nagarkoti",
-        "Role": "Bowler",
-        "Price": "INR 1.10 crores",
-        "Nation": "India",
-        "Team": "Delhi Capitals"
+     "Player Name": "Chris Jordan",
+     "Team": "CSK",
+     "Active": "Active"
     },
     {
-        "Player": "Mustafizur Rahman",
-        "Role": "Bowler",
-        "Price": "INR 2 crores",
-        "Nation": "Bangladesh",
-        "Team": "Delhi Capitals"
+     "Player Name": "Mitchell Santner",
+     "Team": "CSK",
+     "Active": "Active"
     },
     {
-        "Player": "Lungi Ngidi",
-        "Role": "Bowler",
-        "Price": "INR 50 Lakhs",
-        "Nation": "South Africa",
-        "Team": "Delhi Capitals"
+     "Player Name": "Dwaine Pretorius",
+     "Team": "CSK",
+     "Active": "Active"
     },
     {
-        "Player": "Khaleel Ahmed",
-        "Role": "Bowler",
-        "Price": "INR 5.25 crores",
-        "Nation": "India",
-        "Team": "Delhi Capitals"
+     "Player Name": "Shivam Dube",
+     "Team": "CSK",
+     "Active": "Active"
     },
     {
-        "Player": "Chetan Sakariya",
-        "Role": "Bowler",
-        "Price": "INR 4.20 crores",
-        "Nation": "India",
-        "Team": "Delhi Capitals"
+     "Player Name": "Dwayne Bravo",
+     "Team": "CSK",
+     "Active": "Active"
     },
     {
-        "Player": "Praveen Dubey",
-        "Role": "Bowler",
-        "Price": "INR 50 Lakhs",
-        "Nation": "India",
-        "Team": "Delhi Capitals"
+     "Player Name": "Prashant Solanki",
+     "Team": "CSK",
+     "Active": "Active"
     },
     {
-        "Player": "Kuldeep Yadav",
-        "Role": "Bowler",
-        "Price": "INR 2 crores",
-        "Nation": "India",
-        "Team": "Delhi Capitals"
+     "Player Name": "Mukesh Choudhary",
+     "Team": "CSK",
+     "Active": "Active"
     },
     {
-        "Player": "Axar Patel",
-        "Role": "All-rounder",
-        "Price": "INR 9 crores(Retained)",
-        "Nation": "India",
-        "Team": "Delhi Capitals"
+     "Player Name": "Adam Milne",
+     "Team": "CSK",
+     "Active": "Active"
     },
     {
-        "Player": "Mitchell Marsh",
-        "Role": "All-rounder",
-        "Price": "INR 6.50 Crores",
-        "Nation": "Australia",
-        "Team": "Delhi Capitals"
+     "Player Name": "Rajvardhan Hangargekar",
+     "Team": "CSK",
+     "Active": "Active"
     },
     {
-        "Player": "Lalit Yadav",
-        "Role": "All-rounder",
-        "Price": "INR 65 Lakhs",
-        "Nation": "India",
-        "Team": "Delhi Capitals"
+     "Player Name": "Simarjeet Singh",
+     "Team": "CSK",
+     "Active": "Active"
     },
     {
-        "Player": "Ripal Patel",
-        "Role": "All-rounder",
-        "Price": "INR 20 Lakhs",
-        "Nation": "India",
-        "Team": "Delhi Capitals"
+     "Player Name": "Maheesh Theekshana",
+     "Team": "CSK",
+     "Active": "Active"
     },
     {
-        "Player": "Vicky Ostwal",
-        "Role": "All-rounder",
-        "Price": "INR 20 Lakh",
-        "Nation": "India",
-        "Team": "Delhi Capitals"
+     "Player Name": "Deepak Chahar",
+     "Team": "CSK",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Tushar Deshpande",
+     "Team": "CSK",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "KM Asif",
+     "Team": "CSK",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Prithvi Shaw",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Sarfaraz Khan",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Yash Dhull",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Rovman Powell",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Mandeep Singh",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Ashwin Hebbar",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "David Warner",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Rishabh Pant",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Tim Seifert",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Srikar Bharat",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Axar Patel",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Vicky Ostwal",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Ripal Patel",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Lalit Yadav",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Mitchell Marsh",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Anrich Nortje",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Lungi Ngidi",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Kamlesh Nagarkoti",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Praveen Dubey",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Chetan Sakariya",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Khaleel Ahmed",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Kuldeep Yadav",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Mustafizur Rahman",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Shardul Thakur",
+     "Team": "DC",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Mayank Agarwal",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Prerak Mankad",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Bhanuka Rajapaksa",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Shikhar Dhawan",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Jitesh Sharma",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Prabhsimran Singh",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Jonny Bairstow",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Benny Howell",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Atharva Taide",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Baltej Singh",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Liam Livingstone",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Shahrukh Khan",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Ansh Patel",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Rishi Dhawan",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Arshdeep Singh",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Raj Bawa",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Vaibhav Arora",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Writtick Chatterjee",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Nathan Ellis",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Harpreet Brar",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Odean Smith",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Sandeep Sharma",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Ishan Porel",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Rahul Chahar",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Kagiso Rabada",
+     "Team": "PBKS",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Ramesh Kumar",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Aman Hakim Khan",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Abhijeet Tomar",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Pratham Singh",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Alex Hales",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Baba Indrajith",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Rinku Singh",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Ajinkya Rahane",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Shreyas Iyer",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Sam Billings",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Sheldon Jackson",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Venkatesh Iyer",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Andre Russell",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Sunil Narine",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Chamika Karunaratne",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Anukul Roy",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Mohammad Nabi",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Nitish Rana",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Varun Chakravarthy",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Umesh Yadav",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Rasikh Salam",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Ashok Sharma",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Tim Southee",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Shivam Mavi",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Pat Cummins",
+     "Team": "KKR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Yashasvi Jaiswal",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Rassie van der Dussen",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Karun Nair",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Devdutt Padikkal",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Shimron Hetmyer",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Sanju Samson",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Jos Buttler",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Dhruv Jurel",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Daryl Mitchell",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "James Neesham",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Anunay Singh",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Riyan Parag",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Nathan Coulter Nile",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Kuldip Yadav",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Shubham Garhwal",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Tejas Baroka",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Kuldeep Sen",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Obed McCoy",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Navdeep Saini",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "KC Cariappa",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Yuzvendra Chahal",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Prasidh Krishna",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Trent Boult",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Ravichandran Ashwin",
+     "Team": "RR",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Kane Williamson",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Ravikumar Samarth",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Shashank Singh",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Aiden Markram",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Rahul Tripathi",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Priyam Garg",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Glenn Philipps",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Vishnu Vinod",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Nicholas Pooran",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Abdul Samad",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Sean Abbott",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Marco Jansen",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Abhishek Sharma",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Washington Sundar",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Umran Malik",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Fazalhaq Farooqi",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Saurabh Dubey",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Romario Shepherd",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Jagadeesha Suchith",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Shreyas Gopal",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Kartik Tyagi",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Bhuvneshwar Kumar",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "T Natarajan",
+     "Team": "SRH",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Evin Lewis",
+     "Team": "LSG",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Manan Vohra",
+     "Team": "LSG",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Manish Pandey",
+     "Team": "LSG",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "KL Rahul",
+     "Team": "LSG",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Quinton de Kock",
+     "Team": "LSG",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Marcus Stoinis",
+     "Team": "LSG",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Ayush Badoni",
+     "Team": "LSG",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Kyle Mayers",
+     "Team": "LSG",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Karan Sharma",
+     "Team": "LSG",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Krishnappa Gowtham",
+     "Team": "LSG",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Krunal Pandya",
+     "Team": "LSG",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Deepak Hooda",
+     "Team": "LSG",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Jason Holder",
+     "Team": "LSG",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Ravi Bishnoi",
+     "Team": "LSG",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Mayank Yadav",
+     "Team": "LSG",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Mohsin Khan",
+     "Team": "LSG",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Avesh Khan",
+     "Team": "LSG",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Shahbaz Nadeem",
+     "Team": "LSG",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Dushmantha Chameera",
+     "Team": "LSG",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Ankit Rajpoot",
+     "Team": "LSG",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Mark Wood",
+     "Team": "LSG",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Shubman Gill",
+     "Team": "GT",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Sai Sudharsan",
+     "Team": "GT",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "David Miller",
+     "Team": "GT",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Abhinav Manohar",
+     "Team": "GT",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Jason Roy",
+     "Team": "GT",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Matthew Wade",
+     "Team": "GT",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Wriddhiman Saha",
+     "Team": "GT",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Hardik Pandya",
+     "Team": "GT",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Vijay Shankar",
+     "Team": "GT",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Gurkeerat Singh Mann",
+     "Team": "GT",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Jayant Yadav",
+     "Team": "GT",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Dominic Drakes",
+     "Team": "GT",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Rahul Tewatia",
+     "Team": "GT",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Rashid Khan",
+     "Team": "GT",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Varun Aaron",
+     "Team": "GT",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Pradeep Sangwan",
+     "Team": "GT",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Alzarri Joseph",
+     "Team": "GT",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Darshan Nalkande",
+     "Team": "GT",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Yash Dayal",
+     "Team": "GT",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Noor Ahmad",
+     "Team": "GT",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "R Sai Kishore",
+     "Team": "GT",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Lockie Ferguson",
+     "Team": "GT",
+     "Active": "Active"
+    },
+    {
+     "Player Name": "Mohammed Shami",
+     "Team": "GT",
+     "Active": "Active"
     }
-]
+   ]

@@ -1,4 +1,18 @@
 <div class="grid">
+    <div class="col-12">
+        <p-card header="Match Details">
+            <div class="match-det">
+                <span><b>Match No : </b> 2</span>	&#9734;
+                <span><b>Match : </b> X-Team vs Y-Team</span>	&#9734;
+                <span><b>Venue : </b> Play Ground, Test</span>	&#9734;
+                <span><b>Time : </b> 19:30</span> &#9734;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span><b style="display: inline-block">Count down : </b></span>
+                <span style="display: inline-block"><app-count-down [time]="lockTime"></app-count-down></span>
+            </div>
+        </p-card>
+    </div>
+</div>
+<div class="grid">
     <div class="col-4">
         <p-card header="Your XI Players">
             <p-table #dt1 [value]="selectedPlayers" dataKey="Player" [rows]="5" [showCurrentPageReport]="true"
@@ -30,7 +44,7 @@
                 <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
                     <tr>
                         <td>
-                            {{rowData['Player']}}
+                            {{rowData['Player Name']}}
                         </td>
                         <td pEditableColumn>
                             <p-cellEditor>
@@ -51,9 +65,10 @@
                 </ng-template>
             </p-table>
             <br>
-            <button pButton pRipple type="button" class="long_btn">Submit</button><br><br>
-            <button pButton pRipple type="button" class="long_btn">Reset</button><br><br>
-            <button pButton pRipple type="button" class="long_btn" [disabled]="checkUndo()" (click)="undo()">Undo</button>
+            <button [disabled]="selectedPlayers.length==0" pButton pRipple type="button" class="long_btn">Submit</button><br><br>
+            <button  pButton pRipple type="button" class="long_btn">Reset</button><br><br>
+            <button  pButton pRipple type="button" class="long_btn" [disabled]="checkUndo()"
+                (click)="undo()">Undo</button>
 
         </p-card>
     </div>
@@ -65,12 +80,6 @@
                         <td>Team Size</td>
                         <td>{{teamSize}}/{{teamSizeLimit}}</td>
                         <td class="checkbox">{{teamSize==teamSizeLimit?' &#10003;':''}}</td>
-                    </tr>
-
-                    <tr class="team-summary-tr">
-                        <td>Indian Players</td>
-                        <td>{{IndianCount}}/{{IndianCountLimit}}</td>
-                        <td class="checkbox">{{IndianCount==IndianCountLimit?' &#10003;':''}}</td>
                     </tr>
                     <tr class="team-summary-tr">
                         <td>Captain</td>
@@ -88,13 +97,9 @@
                         <td class="checkbox">{{AllRoundersCount==AllRoundersCountLimit?' &#10003;':''}}</td>
                     </tr>
                     <tr class="team-summary-tr">
-                        <td>Wicket Keeper</td>
-                        <td>{{wicketKeeperCount}}/{{wicketKeeperCountLimit}}</td>
-                        <td class="checkbox">{{wicketKeeperCount==wicketKeeperCountLimit?' &#10003;':''}}</td>
-                    </tr>
-                    <tr class="team-summary-tr">
                         <td>Substitute</td>
-                        <td>{{subCountUsed}}/{{subCountLimit}}</td>
+                        <td *ngIf="subCountLimit">{{subCountUsed}}/{{subCountLimit}}</td>
+                        <td *ngIf="!subCountLimit">&#8734;</td>
                         <td class="checkbox">{{subCountUsed==subCountLimit?' &#10003;':''}}</td>
                     </tr>
                 </tbody>
@@ -107,7 +112,7 @@
                 [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]"
                 styleClass="p-datatable-sm p-datatable-gridlines" [paginator]="true"
                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-                [globalFilterFields]="['Player','Team','Nation']">
+                [globalFilterFields]="['Player Name','Team']">
                 <ng-template pTemplate="caption">
                     <div class="p-d-flex">
                         <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash"

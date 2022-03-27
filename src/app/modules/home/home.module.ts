@@ -5,9 +5,10 @@ import { RouterModule } from '@angular/router';
 import { StatComponent } from './pages/stat/stat.component';
 import { PrimengModule } from 'src/app/@shared/modules/primeng/primeng.module';
 import { CoreModule } from 'src/app/@core/core.module';
+import { CountDownComponent } from './components/count-down/count-down.component';
 
 @NgModule({
-  declarations: [DashboardComponent, StatComponent],
+  declarations: [DashboardComponent, StatComponent, CountDownComponent],
   imports: [
     CommonModule,
     PrimengModule,
